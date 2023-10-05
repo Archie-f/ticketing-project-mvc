@@ -71,5 +71,6 @@ public class DataGenerator implements CommandLineRunner {
         projectService.save(project2);
         projectService.save(project3);
 
+
     }
 }
