@@ -41,6 +41,11 @@ public class TaskServiceImpl extends AbstractMapService<TaskDTO, Long> implement
     @Override
     public void update(TaskDTO object) {
 
+        TaskDTO foundTask = findById(object.getId());
+
+        object.setTaskStatus(foundTask.getTaskStatus());
+        object.setAssignedDate(foundTask.getAssignedDate());
+
         super.update(object.getId(), object);
 
     }
@@ -56,5 +61,10 @@ public class TaskServiceImpl extends AbstractMapService<TaskDTO, Long> implement
     }
 
 
-
+    @Override
+    public List<TaskDTO> findTasksByManager(UserDTO manager) {
+        return super.findAll().stream()
+                .filter(task -> task.getProject().getAssignedManager().equals(manager))
+                .collect(Collectors.toList());
+    }
 }

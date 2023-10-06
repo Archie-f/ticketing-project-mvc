@@ -32,7 +32,7 @@
                                 <div class="panel-body">
 
                                     <!-- ------------------------FORM START----------------------------- -->
-                                    <form th:action="@{/task/update/{id}(id=${task.id})}" method="post" th:object="${task}">
+                                    <form th:action="@{/task/update/{id}(id=${task.getId()})}" method="post" th:object="${task}">
 
                                         <div class="row">
                                             <div class="col">
