@@ -1,6 +1,7 @@
 package com.cydeo.dto;
 
 import com.cydeo.enums.Status;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -19,4 +20,13 @@ public class TaskDTO {
     private Status taskStatus;
     private LocalDate assignedDate;
 
+    public TaskDTO(ProjectDTO project, UserDTO assignedEmployee, String taskSubject, String taskDetail, Status taskStatus, LocalDate assignedDate) {
+        this.project = project;
+        this.assignedEmployee = assignedEmployee;
+        this.taskSubject = taskSubject;
+        this.taskDetail = taskDetail;
+        this.taskStatus = taskStatus;
+        this.assignedDate = assignedDate;
+        this.id = UUID.randomUUID().getMostSignificantBits();
+    }
 }
